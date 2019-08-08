@@ -21,4 +21,22 @@ Please refer to the [LICENSE](LICENSE.md).
 
 ## Usage
 
+Start the docker container:
+
+```
+docker-compose up
+```
+
+Open your browser and navigate to:
+
+[http://localhost:56732/](http://localhost:56732/)
+
+If everything is working, you should see the following page:
+
 TODO
+
+To stop the application, press `Ctrl+C` from your terminal.
+
+## Credits
+
+- [uwsgi-nginx-flask-docker](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
