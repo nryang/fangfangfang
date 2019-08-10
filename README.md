@@ -31,7 +31,6 @@ Start the docker container:
 docker-compose up
 ```
 
-
 Open your browser and navigate to:
 
 [http://localhost:56732/](http://localhost:56732/)

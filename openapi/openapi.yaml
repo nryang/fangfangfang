@@ -20,6 +20,7 @@ paths:
     post:
       summary: 'Defang content'
       operationId: 'defang'
+      x-codegen-request-body-name: 'body'
       requestBody:
         required: true
         content:
@@ -37,6 +38,7 @@ paths:
     post:
       summary: 'Refang content'
       operationId: 'refang'
+      x-codegen-request-body-name: 'body'
       requestBody:
         required: true
         content:

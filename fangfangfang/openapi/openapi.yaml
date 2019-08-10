@@ -34,6 +34,7 @@ paths:
                 $ref: '#/components/schemas/DefangResponse'
           description: Success response
       summary: Defang content
+      x-codegen-request-body-name: body
       x-openapi-router-controller: fangfangfang.controllers.default_controller
   /refang:
     post:
@@ -52,6 +53,7 @@ paths:
                 $ref: '#/components/schemas/RefangResponse'
           description: Success response
       summary: Refang content
+      x-codegen-request-body-name: body
       x-openapi-router-controller: fangfangfang.controllers.default_controller
 components:
   schemas:
