@@ -9,8 +9,8 @@
 #
 
 java -jar ./openapi-generator-cli.jar generate  \
--i ../app/openapi/openapi.yaml \
+-i ../openapi/openapi.yaml \
 -g python-flask \
 -o ../ \
 -t ../codegen-templates \
---additional-properties=packageName=app
+--additional-properties=packageName=server

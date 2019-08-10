@@ -4,10 +4,10 @@ services:
     container_name: fangfangfang
     build: ./
     volumes:
-      - ./app:/app
+      - ./server:/server
     ports:
       - '56732:80'
     environment:
       - FLASK_APP=main.py
       - FLASK_DEBUG=1
-      - 'RUN=flask run --host=0.0.0.0 --port=80'
+      - 'RUN=python3 main.py'

@@ -11,6 +11,6 @@ ENV STATIC_INDEX 1
 COPY ./requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
-COPY ./app /app
+COPY server /app
 
 WORKDIR /app

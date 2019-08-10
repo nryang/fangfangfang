@@ -1,0 +1,109 @@
+openapi: 3.0.2
+info:
+  contact:
+    name: GitHub
+    url: https://github.com/nryang/fangfangfang
+  description: Defangs and refangs URLs
+  license:
+    name: MIT
+    url: https://github.com/nryang/fangfangfang/blob/master/LICENSE.md
+  title: Fang Fang Fang
+  version: 1.0.0
+servers:
+- description: Local
+  url: http://localhost:56733/api
+paths:
+  /defang:
+    post:
+      operationId: defang
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefangRequest'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefangResponse'
+          description: Success response
+      summary: Defang content
+      x-openapi-router-controller: server.controllers.default_controller
+  /refang:
+    post:
+      operationId: refang
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefangRequest'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefangResponse'
+          description: Success response
+      summary: Refang content
+      x-openapi-router-controller: server.controllers.default_controller
+components:
+  schemas:
+    DefangRequest:
+      example:
+        contents:
+        - https://somewebsite.com
+        - https://somewebsite.com
+      properties:
+        contents:
+          items:
+            example: https://somewebsite.com
+            type: string
+          type: array
+      required:
+      - contents
+      type: object
+    DefangResponse:
+      example:
+        defanged_contents:
+        - hxxp:\/\/somewebsite[dot]com
+        - hxxp:\/\/somewebsite[dot]com
+      properties:
+        defanged_contents:
+          items:
+            example: hxxp:\/\/somewebsite[dot]com
+            type: string
+          type: array
+      required:
+      - defanged_contents
+      type: object
+    RefangRequest:
+      example:
+        contents:
+        - hxxp:\/\/somewebsite[dot]com
+        - hxxp:\/\/somewebsite[dot]com
+      properties:
+        contents:
+          items:
+            example: hxxp:\/\/somewebsite[dot]com
+            type: string
+          type: array
+      required:
+      - contents
+      type: object
+    RefangResponse:
+      example:
+        refanged_contents:
+        - https://somewebsite.com
+        - https://somewebsite.com
+      properties:
+        refanged_contents:
+          items:
+            example: https://somewebsite.com
+            type: string
+          type: array
+      required:
+      - refanged_contents
+      type: object

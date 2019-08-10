@@ -6,7 +6,7 @@ Do not edit the file manually.
 from connexion.apps.flask_app import FlaskJSONEncoder
 import six
 
-from app.models.base_model_ import Model
+from server.models.base_model_ import Model
 
 
 class JSONEncoder(FlaskJSONEncoder):

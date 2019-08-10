@@ -8,7 +8,7 @@ import pprint
 import six
 import typing
 
-from app import util
+from server import util
 
 T = typing.TypeVar('T')
 

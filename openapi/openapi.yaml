@@ -28,7 +28,7 @@ paths:
               $ref: '#/components/schemas/DefangRequest'
       responses:
         '200':
-          description: 'Sucess response'
+          description: 'Success response'
           content:
             application/json:
               schema:

@@ -10,5 +10,4 @@ tox.ini
 .dockerignore
 .openapi-generator/
 app/__main__.py
-app/openapi/openapi.yaml
 app/controllers/security_controller_.py

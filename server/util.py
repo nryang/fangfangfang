@@ -7,7 +7,7 @@ import datetime
 
 import six
 import typing
-from app import typing_utils
+from server import typing_utils
 
 
 def _deserialize(data, klass):
