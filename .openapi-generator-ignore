@@ -9,5 +9,4 @@ tox.ini
 .gitignore
 .dockerignore
 .openapi-generator/
-app/__main__.py
-app/controllers/security_controller_.py
+fangfangfang/controllers/security_controller_.py

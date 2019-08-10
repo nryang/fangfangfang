@@ -12,5 +12,5 @@ java -jar ./openapi-generator-cli.jar generate  \
 -i ../openapi/openapi.yaml \
 -g python-flask \
 -o ../ \
--t ../codegen-templates \
---additional-properties=packageName=server
+-t ../openapi-generator-templates \
+--additional-properties=packageName=fangfangfang,serverPort=56732

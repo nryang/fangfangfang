@@ -5,11 +5,11 @@ Do not edit the file manually.
 
 import connexion
 
-from server.models.defang_request import DefangRequest  # noqa: E501
-from server.models.defang_response import DefangResponse  # noqa: E501
-from server.models.refang_request import RefangRequest  # noqa: E501
-from server.models.refang_response import RefangResponse  # noqa: E501
-from server.controllers.impl import default_controller_impl
+from fangfangfang.models.defang_request import DefangRequest  # noqa: E501
+from fangfangfang.models.defang_response import DefangResponse  # noqa: E501
+from fangfangfang.models.refang_request import RefangRequest  # noqa: E501
+from fangfangfang.models.refang_response import RefangResponse  # noqa: E501
+from fangfangfang.controllers.impl import default_controller_impl
 
 
 def defang(defang_request):  # noqa: E501

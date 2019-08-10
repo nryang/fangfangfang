@@ -30,7 +30,7 @@ paths:
                 $ref: '#/components/schemas/DefangResponse'
           description: Success response
       summary: Defang content
-      x-openapi-router-controller: server.controllers.default_controller
+      x-openapi-router-controller: fangfangfang.controllers.default_controller
   /refang:
     post:
       operationId: refang
@@ -48,7 +48,7 @@ paths:
                 $ref: '#/components/schemas/RefangResponse'
           description: Success response
       summary: Refang content
-      x-openapi-router-controller: server.controllers.default_controller
+      x-openapi-router-controller: fangfangfang.controllers.default_controller
 components:
   schemas:
     DefangRequest:

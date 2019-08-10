@@ -19,11 +19,18 @@ Please refer to the [LICENSE](LICENSE.md).
 
 ## Usage
 
+Build the docker container:
+
+```
+docker-compose build
+```
+
 Start the docker container:
 
 ```
 docker-compose up
 ```
+
 
 Open your browser and navigate to:
 

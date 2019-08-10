@@ -4,10 +4,7 @@ services:
     container_name: fangfangfang
     build: ./
     volumes:
-      - ./server:/server
+      - .:/fangfangfang
     ports:
-      - '56732:80'
-    environment:
-      - FLASK_APP=main.py
-      - FLASK_DEBUG=1
-      - 'RUN=python3 main.py'
+      - '56732:56732'
+    command: python3 -m fangfangfang

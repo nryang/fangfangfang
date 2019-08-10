@@ -1,16 +1,6 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.7
 
-RUN apt-get update
+COPY . /fangfangfang
+WORKDIR /fangfangfang
 
-# Update to the latest pip
-RUN pip3 install --upgrade pip
-
-# If STATIC_INDEX is 1, serve / with /static/index.html directly (or the static URL configured)
-ENV STATIC_INDEX 1
-
-COPY ./requirements.txt /tmp/requirements.txt
-RUN pip3 install -r /tmp/requirements.txt
-
-COPY server /app
-
-WORKDIR /app
+RUN python3 setup.py install
