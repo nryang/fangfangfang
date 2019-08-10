@@ -40,6 +40,15 @@ If everything is working, you should see the following page:
 
 TODO
 
+fangfangfang also provides API endpoints for defanging or refanging text. You
+can access the API documentation in your browser by navigating to:
+
+[http://localhost:56732/api/ui](http://localhost:56732/api/ui)
+
+If the API docs are working, you should see the following page:
+
+![Generated API documentation](/images/api-docs.png)
+
 To stop the application, press `Ctrl+C` from your terminal.
 
 ## Known Issues
