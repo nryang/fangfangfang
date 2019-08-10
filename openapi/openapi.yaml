@@ -55,9 +55,21 @@ paths:
 
 components:
   schemas:
+    Model:
+      type: 'string'
+      enum: ['escape', 'homoglyph']
+      default: 'escape'
+      description: |
+        The model to use for defanging or refanging. The default model is `escape`.
+        | Model | Description |
+        |-----|-----|
+        | escape | Uses escape characters to make links unclickable but at the cost of readability. |
+        | homoglyph | Uses homoglyphs to make links unclickable but readable. |
     DefangRequest:
       type: 'object'
       properties:
+        model:
+          $ref: '#/components/schemas/Model'
         contents:
           type: 'array'
           items:
@@ -78,6 +90,8 @@ components:
     RefangRequest:
       type: 'object'
       properties:
+        model:
+          $ref: '#/components/schemas/Model'
         contents:
           type: 'array'
           items:
