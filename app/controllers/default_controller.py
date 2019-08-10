@@ -4,14 +4,12 @@ Do not edit the file manually.
 """
 
 import connexion
-import six
 
-from gen.models.defang_request import DefangRequest  # noqa: E501
-from gen.models.defang_response import DefangResponse  # noqa: E501
-from gen.models.refang_request import RefangRequest  # noqa: E501
-from gen.models.refang_response import RefangResponse  # noqa: E501
-from gen import util
-from gen.server_impl.controllers_impl import DefaultController_impl
+from app.models.defang_request import DefangRequest  # noqa: E501
+from app.models.defang_response import DefangResponse  # noqa: E501
+from app.models.refang_request import RefangRequest  # noqa: E501
+from app.models.refang_response import RefangResponse  # noqa: E501
+from app.controllers.impl import default_controller_impl
 
 
 def defang(defang_request):  # noqa: E501
@@ -26,7 +24,7 @@ def defang(defang_request):  # noqa: E501
     """
     if connexion.request.is_json:
         defang_request = DefangRequest.from_dict(connexion.request.get_json())  # noqa: E501
-    return DefaultController_impl.defang(defang_request)
+    return default_controller_impl.defang(defang_request)
 
 
 def refang(refang_request):  # noqa: E501
@@ -41,4 +39,4 @@ def refang(refang_request):  # noqa: E501
     """
     if connexion.request.is_json:
         refang_request = RefangRequest.from_dict(connexion.request.get_json())  # noqa: E501
-    return DefaultController_impl.refang(refang_request)
+    return default_controller_impl.refang(refang_request)

@@ -4,12 +4,10 @@ Do not edit the file manually.
 """
 
 import connexion
-import six
 
 {{#imports}}{{import}}  # noqa: E501
 {{/imports}}
-from {{packageName}} import util
-from {{packageName}}.server_impl.controllers_impl import {{classname}}_impl
+from {{packageName}}.controllers.impl import {{classFilename}}_impl
 {{#operations}}
 {{#operation}}
 
@@ -113,6 +111,6 @@ def {{operationId}}({{#allParams}}{{paramName}}{{^required}}=None{{/required}}{{
             {{/items}}
         {{/isMapContainer}}
     {{/allParams}}
-    return {{classname}}_impl.{{operationId}}({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
+    return {{classFilename}}_impl.{{operationId}}({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
 {{/operation}}
 {{/operations}}

@@ -6,11 +6,11 @@ import unittest
 from flask import json
 from six import BytesIO
 
-from gen.models.defang_request import DefangRequest  # noqa: E501
-from gen.models.defang_response import DefangResponse  # noqa: E501
-from gen.models.refang_request import RefangRequest  # noqa: E501
-from gen.models.refang_response import RefangResponse  # noqa: E501
-from gen.test import BaseTestCase
+from app.models.defang_request import DefangRequest  # noqa: E501
+from app.models.defang_response import DefangResponse  # noqa: E501
+from app.models.refang_request import RefangRequest  # noqa: E501
+from app.models.refang_response import RefangResponse  # noqa: E501
+from app.test import BaseTestCase
 
 
 class TestDefaultController(BaseTestCase):
