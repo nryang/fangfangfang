@@ -57,12 +57,26 @@ paths:
       x-openapi-router-controller: fangfangfang.controllers.default_controller
 components:
   schemas:
+    Model:
+      default: escape
+      description: |
+        The model to use for defanging or refanging. The default model is `escape`.
+        | Model | Description |
+        |-----|-----|
+        | escape | Uses escape characters to make links unclickable but at the cost of readability. |
+        | homoglyph | Uses homoglyphs to make links unclickable but readable. |
+      enum:
+      - escape
+      - homoglyph
+      type: string
     DefangRequest:
       example:
         contents:
         - https://somewebsite.com
         - https://somewebsite.com
       properties:
+        model:
+          $ref: '#/components/schemas/Model'
         contents:
           items:
             example: https://somewebsite.com
@@ -91,6 +105,8 @@ components:
         - hxxp:\/\/somewebsite[dot]com
         - hxxp:\/\/somewebsite[dot]com
       properties:
+        model:
+          $ref: '#/components/schemas/Model'
         contents:
           items:
             example: hxxp:\/\/somewebsite[dot]com

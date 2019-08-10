@@ -54,6 +54,30 @@ To stop the application, press `Ctrl+C` from your terminal.
 
 - In the generated documentation, examples like `hxxp:\/\/somewebsite[dot]com` are showing up as `hxxp:\\/\\/somewebsite[dot]com` where the backslash is repeated twice. Appears to be a bug in Swagger UI.
 
+## Developer Notes
+
+This project uses an API-first approach. The API spec is written in OpenAPI 3
+and is defined in [openapi/openapi.yaml](openapi/openapi.yaml).
+
+[openapi-generator](https://github.com/OpenAPITools/openapi-generator) takes the
+OpenAPI spec and auto-generates the [controllers](fangfangfang/controllers),
+[models](fangfangfang/models), and [basic integration tests](fangfangfang/test).
+
+To auto-generate the files (requires [Java 8+](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)):
+
+```
+cd bin
+./codegen.sh
+```
+
+The auto-generated [controllers](fangfangfang/controllers) call the
+implementation controller modules like [default_controller_impl.py](fangfangfang/controllers/default_controller.py).
+
+[Connexion](https://connexion.readthedocs.io/en/latest/) uses the
+[controllers](fangfangfang/controllers) to serve the REST
+endpoints. It also serves static files like the
+[Swagger UI documentation](https://swagger.io/tools/swagger-ui/).
+
 ## Credits
 
 - [uwsgi-nginx-flask-docker](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
