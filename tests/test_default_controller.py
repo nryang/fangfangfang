@@ -26,7 +26,7 @@ class TestDefaultController(BaseTestCase):
         Defang content
         """
         body = {
-  "contents" : [ "https://somewebsite.com", "https://somewebsite.com" ]
+  "contents" : [ "The quick brown fox.com jumps over the lazy dog.meow", "The quick brown fox.com jumps over the lazy dog.meow" ]
 }
         headers = { 
             'Accept': 'application/json',
@@ -47,7 +47,7 @@ class TestDefaultController(BaseTestCase):
         Refang content
         """
         body = {
-  "contents" : [ "hxxp:\\/\\/somewebsite[dot]com", "hxxp:\\/\\/somewebsite[dot]com" ]
+  "contents" : [ "The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ", "The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ" ]
 }
         headers = { 
             'Accept': 'application/json',

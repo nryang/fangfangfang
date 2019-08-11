@@ -12,7 +12,7 @@ info:
     url: 'https://github.com/nryang/fangfangfang/blob/master/LICENSE.md'
 
 servers:
-- url: 'http://localhost:56733/api'
+- url: 'http://localhost:56732/api'
   description: 'Local'
 
 paths:
@@ -74,7 +74,7 @@ components:
           type: 'array'
           items:
             type: 'string'
-            example: 'https://somewebsite.com'
+            example: 'The quick brown fox.com jumps over the lazy dog.meow'
       required:
         - 'contents'
     DefangResponse:
@@ -84,7 +84,7 @@ components:
           type: 'array'
           items:
             type: 'string'
-            example: 'hxxp:\/\/somewebsite[dot]com'
+            example: 'The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ'
       required:
         - 'defanged_contents'
     RefangRequest:
@@ -96,7 +96,7 @@ components:
           type: 'array'
           items:
             type: 'string'
-            example: 'hxxp:\/\/somewebsite[dot]com'
+            example: 'The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ'
       required:
         - 'contents'
     RefangResponse:
@@ -106,6 +106,6 @@ components:
           type: 'array'
           items:
             type: 'string'
-            example: 'https://somewebsite.com'
+            example: 'The quick brown fox.com jumps over the lazy dog.meow'
       required:
         - 'refanged_contents'
