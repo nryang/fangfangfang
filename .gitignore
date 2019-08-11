@@ -128,3 +128,4 @@ dmypy.json
 
 # OpenAPI Generator
 bin/openapi-generator-cli.jar
+ .openapi-generator/VERSION
