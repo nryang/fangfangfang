@@ -5,20 +5,15 @@ from fangfangfang.models.defang_response import DefangResponse
 from fangfangfang.models.refang_response import RefangResponse
 from fangfangfang.controllers.impl.models.fang_model_factory\
     import FangModelFactory
+from fangfangfang.config import CONFIG
 import iocextract
-import os
 
-__location__ = os.path.realpath(
-    os.path.join(os.getcwd(), os.path.dirname(__file__)))
-
-with open(os.path.join(__location__, 'custom_regex.txt'), 'r') as f:
-    custom_regex = f.read().splitlines()
+__custom_regex = CONFIG['custom_regex'].values()
 
 
 def defang(body: DefangRequest):
     """Identifies indicators of compromise and defangs them. Urls, emails,
-    and custom regex rules defined in custom_regex.txt are used to search for
-    indicators of compromise.
+    and custom regex rules are used to search for indicators of compromise.
 
     Keyword arguments:
     body -- the defang request body
@@ -28,7 +23,7 @@ def defang(body: DefangRequest):
     for text in body.contents:
         iocs = list(iocextract.extract_urls(text))\
                + list(iocextract.extract_emails(text))\
-               + list(iocextract.extract_custom_iocs(text, custom_regex))
+               + list(iocextract.extract_custom_iocs(text, __custom_regex))
         substitutions = {}
 
         for ioc in iocs:

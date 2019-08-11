@@ -5,6 +5,9 @@ class AbstractSingletonFangModel(ABCMeta):
     """
     This is an abstract, singleton class for model implementation classes to
     inherit.
+
+    Why singleton? Some models like homoglyph may have an expensive
+    initialization like setting up translation tables.
     """
 
     _singleton_registry = {}

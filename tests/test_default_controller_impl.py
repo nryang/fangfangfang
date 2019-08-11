@@ -28,11 +28,14 @@ class TestDefaultControllerImpl(unittest.TestCase):
         'https&://example.com/test.php',
     ])
     @patch('fangfangfang.controllers.impl.models.homoglyph_fang_model.HomoglyphFangModel.defang')
-    def test_defang_is_ioc(self, not_ioc, mock_for_defang):
-        """Asserts the indicators of compromise that should be discovered.
+    def test_defang_is_ioc(self, text, mock_for_defang):
+        """Asserts the indicators of compromise that should be discovered in specific pieces of text.
+
+        The defang return value is mocked because we only care about whether
+        the indicator of compromise in the text was replaced or not.
         """
         mock_for_defang.return_value = 'this_is_a_mocked_defang_result'
-        defang_request = DefangRequest(contents=[not_ioc])
+        defang_request = DefangRequest(contents=[text])
         defang_response = defang(defang_request)
         self.assertTrue('this_is_a_mocked_defang_result' in defang_response.defanged_contents[0])
 
@@ -49,12 +52,12 @@ class TestDefaultControllerImpl(unittest.TestCase):
         'a.c',
         'һｔｔｐ：⁄⁄ｅⅹａⅿｐⅼｅ．ｃｏⅿ'
     ])
-    def test_defang_not_ioc(self, not_ioc):
+    def test_defang_not_ioc(self, text):
         """Asserts text that do not have indicators of compromise.
         """
-        defang_request = DefangRequest(contents=[not_ioc])
+        defang_request = DefangRequest(contents=[text])
         defang_response = defang(defang_request)
-        self.assertEqual(defang_response.defanged_contents, [not_ioc])
+        self.assertEqual(defang_response.defanged_contents, [text])
 
     @patch('fangfangfang.controllers.impl.models.fang_model_factory.FangModelFactory.create_model')
     @patch('iocextract.extract_urls')

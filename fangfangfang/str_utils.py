@@ -1,7 +1,7 @@
 import re
 
 
-def replace_all(str, substitutions):
+def replace_all(str: str, substitutions: dict):
     """Replaces multiple substrings in a string.
 
     Keyword arguments:

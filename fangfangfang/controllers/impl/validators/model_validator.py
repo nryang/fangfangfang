@@ -6,6 +6,9 @@ from jsonschema import draft4_format_checker
 def is_model(val):
     """Returns true if the value represents a valid model.
 
+    This is a custom validator that Connexion uses to verify the model field
+    in request bodies.
+
     Keyword arguments:
     val -- the model value
     """
