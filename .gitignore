@@ -125,3 +125,6 @@ dmypy.json
 
 # PyCharm
 .idea/
+
+# OpenAPI Generator
+bin/openapi-generator-cli.jar
