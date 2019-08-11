@@ -136,12 +136,12 @@ components:
     DefangResponse:
       example:
         defanged_contents:
-        - The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ
-        - The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ
+        - The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ
+        - The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ
       properties:
         defanged_contents:
           items:
-            example: The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ
+            example: The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ
             type: string
           type: array
       required:
@@ -150,14 +150,14 @@ components:
     RefangRequest:
       example:
         contents:
-        - The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ
-        - The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ
+        - The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ
+        - The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ
       properties:
         model:
           $ref: '#/components/schemas/Model'
         contents:
           items:
-            example: The quick brown ſᴏ×․ᴄᴏm jumps over the lazy ⅆᴏƍ․m℮ᴏɯ
+            example: The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ
             type: string
           type: array
       required:
