@@ -3,12 +3,12 @@ from unittest.mock import patch
 from parameterized import parameterized
 from fangfangfang.controllers.impl.models.homoglyph_fang_model\
     import HomoglyphFangModel
-from fangfangfang.controllers.impl.default_controller_impl import defang, refang
+from fangfangfang.controllers.impl.api_controller_impl import defang, refang
 from fangfangfang.models.defang_request import DefangRequest
 from fangfangfang.models.refang_request import RefangRequest
 
 
-class TestDefaultControllerImpl(unittest.TestCase):
+class TestAPIControllerImpl(unittest.TestCase):
 
     @parameterized.expand([
         'test.com',

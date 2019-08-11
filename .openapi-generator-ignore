@@ -10,3 +10,4 @@ tox.ini
 .dockerignore
 .openapi-generator/
 fangfangfang/controllers/security_controller_.py
+fangfangfang/test/test_ui_controller.py

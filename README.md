@@ -48,7 +48,7 @@ TODO
 fangfangfang also provides API endpoints for defanging or refanging text. You
 can access the API documentation in your browser by navigating to:
 
-[http://localhost:56732/api/ui](http://localhost:56732/api/ui)
+[http://localhost:56732/ui](http://localhost:56732/ui)
 
 If the API docs are working, you should see the following page:
 
@@ -67,7 +67,7 @@ and is defined in [openapi/openapi.yaml](openapi/openapi.yaml).
 
 [openapi-generator](https://github.com/OpenAPITools/openapi-generator) takes the
 OpenAPI spec and auto-generates the [controllers](fangfangfang/controllers),
-[models](fangfangfang/models), and [basic integration tests](tests/test_default_controller.py).
+[models](fangfangfang/models), and [basic integration tests](tests/test_api_controller.py).
 
 To auto-generate the files (requires [Java 8+](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)):
 
@@ -77,7 +77,7 @@ cd bin
 ```
 
 The auto-generated [controllers](fangfangfang/controllers) call the
-implementation controller modules like [default_controller_impl.py](fangfangfang/controllers/impl/default_controller_impl.py).
+implementation controller modules like [api_controller_impl.py](fangfangfang/controllers/impl/api_controller_impl.py).
 
 [Connexion](https://connexion.readthedocs.io/en/latest/) uses the
 [controllers](fangfangfang/controllers) to serve the REST

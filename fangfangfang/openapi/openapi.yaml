@@ -15,9 +15,24 @@ info:
   version: 1.0.0
 servers:
 - description: Local
-  url: http://localhost:56732/api
+  url: http://localhost:56732
 paths:
-  /defang:
+  /:
+    get:
+      operationId: index
+      responses:
+        200:
+          content:
+            text/html:
+              schema:
+                example: <html><body>Some HTML</body></html>
+                type: string
+          description: Successfully loaded HTML page
+      summary: Displays the home page
+      tags:
+      - UI
+      x-openapi-router-controller: fangfangfang.controllers.ui_controller
+  /api/defang:
     post:
       operationId: defang
       requestBody:
@@ -34,9 +49,11 @@ paths:
                 $ref: '#/components/schemas/DefangResponse'
           description: Success response
       summary: Defang content
+      tags:
+      - API
       x-codegen-request-body-name: body
-      x-openapi-router-controller: fangfangfang.controllers.default_controller
-  /refang:
+      x-openapi-router-controller: fangfangfang.controllers.api_controller
+  /api/refang:
     post:
       operationId: refang
       requestBody:
@@ -53,8 +70,25 @@ paths:
                 $ref: '#/components/schemas/RefangResponse'
           description: Success response
       summary: Refang content
+      tags:
+      - API
       x-codegen-request-body-name: body
-      x-openapi-router-controller: fangfangfang.controllers.default_controller
+      x-openapi-router-controller: fangfangfang.controllers.api_controller
+  /images/logo.png:
+    get:
+      operationId: logo
+      responses:
+        200:
+          content:
+            image/png:
+              schema:
+                format: binary
+                type: string
+          description: Successfully loaded the project logo
+      summary: Returns the logo
+      tags:
+      - UI
+      x-openapi-router-controller: fangfangfang.controllers.ui_controller
 components:
   schemas:
     Model:

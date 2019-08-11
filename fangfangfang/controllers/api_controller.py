@@ -9,7 +9,7 @@ from fangfangfang.models.defang_request import DefangRequest  # noqa: E501
 from fangfangfang.models.defang_response import DefangResponse  # noqa: E501
 from fangfangfang.models.refang_request import RefangRequest  # noqa: E501
 from fangfangfang.models.refang_response import RefangResponse  # noqa: E501
-from fangfangfang.controllers.impl import default_controller_impl
+from fangfangfang.controllers.impl import api_controller_impl
 
 
 def defang(body):  # noqa: E501
@@ -24,7 +24,7 @@ def defang(body):  # noqa: E501
     """
     if connexion.request.is_json:
         body = DefangRequest.from_dict(connexion.request.get_json())  # noqa: E501
-    return default_controller_impl.defang(body)
+    return api_controller_impl.defang(body)
 
 
 def refang(body):  # noqa: E501
@@ -39,4 +39,4 @@ def refang(body):  # noqa: E501
     """
     if connexion.request.is_json:
         body = RefangRequest.from_dict(connexion.request.get_json())  # noqa: E501
-    return default_controller_impl.refang(body)
+    return api_controller_impl.refang(body)

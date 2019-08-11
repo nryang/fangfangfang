@@ -4,8 +4,8 @@ import unittest
 from parameterized import parameterized
 
 
-class TestDefaultControllerRequestValidation(BaseTestCase):
-    """DefaultController request validation integration tests
+class TestAPIControllerRequestValidation(BaseTestCase):
+    """APIController request validation integration tests
     """
 
     @parameterized.expand([

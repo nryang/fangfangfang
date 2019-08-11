@@ -12,13 +12,15 @@ info:
     url: 'https://github.com/nryang/fangfangfang/blob/master/LICENSE.md'
 
 servers:
-- url: 'http://localhost:56732/api'
+- url: 'http://localhost:56732'
   description: 'Local'
 
 paths:
-  /defang:
+  /api/defang:
     post:
       summary: 'Defang content'
+      tags:
+        - 'API'
       operationId: 'defang'
       x-codegen-request-body-name: 'body'
       requestBody:
@@ -34,9 +36,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DefangResponse'
-  /refang:
+  /api/refang:
     post:
       summary: 'Refang content'
+      tags:
+        - 'API'
       operationId: 'refang'
       x-codegen-request-body-name: 'body'
       requestBody:
@@ -52,6 +56,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RefangResponse'
+  /:
+    get:
+      summary: 'Displays the home page'
+      tags:
+        - 'UI'
+      operationId: 'index'
+      responses:
+        '200':
+          description: 'Successfully loaded HTML page'
+          content:
+            text/html:
+              schema:
+                type: 'string'
+                example: '<html><body>Some HTML</body></html>'
+  /images/logo.png:
+    get:
+      summary: 'Returns the logo'
+      tags:
+        - 'UI'
+      operationId: 'logo'
+      responses:
+        '200':
+          description: 'Successfully loaded the project logo'
+          content:
+            image/png:
+              schema:
+                type: 'string'
+                format: 'binary'
 
 components:
   schemas:
