@@ -130,7 +130,7 @@ components:
           type: 'array'
           items:
             type: 'string'
-            example: 'The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ'
+            example: 'The quick brown ſох.соm jumps over the lazy ԁоƍ.mеоɯ'
       required:
         - 'defanged_contents'
     RefangRequest:
@@ -142,7 +142,7 @@ components:
           type: 'array'
           items:
             type: 'string'
-            example: 'The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ'
+            example: 'The quick brown ſох.соm jumps over the lazy ԁоƍ.mеоɯ'
       required:
         - 'contents'
     RefangResponse:

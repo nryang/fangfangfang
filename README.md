@@ -10,7 +10,7 @@ fangfangfang supports multiple defanging and refanging translation models. Curre
 
 | Model     | Example Input                                                                          | Example Defang                                                                       |
 |-----------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| homoglyph | `The fangfangfang source code is located at https://github.com/nryang/fangfangfang :)` | `The fangfangfang source code is located at ℎ𝐭𝐭⍴ƽ://ƍı𝐭ℎʋƄ.ᴄᴏm/𝐧ꭇɣɑ𝐧ƍ/ſɑ𝐧ƍſɑ𝐧ƍſɑ𝐧ƍ :)` |
+| homoglyph | `The fangfangfang source code is located at https://github.com/nryang/fangfangfang :)` | `The fangfangfang source code is located at һttрƽ://ƍıtһʋƄ.соm/nгɣɑnƍ/ſɑnƍſɑnƍſɑnƍ :)` |
 
 ## Disclaimer
 

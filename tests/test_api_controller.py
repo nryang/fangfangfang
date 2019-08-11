@@ -47,7 +47,7 @@ class TestAPIController(BaseTestCase):
         Refang content
         """
         body = {
-  "contents" : [ "The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ", "The quick brown ſᴏ×.ᴄᴏm jumps over the lazy ⅆᴏƍ.m℮ᴏɯ" ]
+  "contents" : [ "The quick brown ſох.соm jumps over the lazy ԁоƍ.mеоɯ", "The quick brown ſох.соm jumps over the lazy ԁоƍ.mеоɯ" ]
 }
         headers = { 
             'Accept': 'application/json',

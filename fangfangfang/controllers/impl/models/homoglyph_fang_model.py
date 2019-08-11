@@ -13,11 +13,10 @@ class HomoglyphFangModel(metaclass=AbstractSingletonFangModel):
     def __init__(self):
         self.ascii_to_homoglyph = {}
         self.homoglyph_to_ascii = {}
-        homoglyphs = hg.Homoglyphs()
+        homoglyphs = hg.Homoglyphs(categories=('LATIN', 'CYRILLIC'))
 
         # Create translation tables from ascii to homoglyph and vice versa
-        character_space = string.ascii_letters + string.digits
-        for char in character_space:
+        for char in string.printable:
             combinations = homoglyphs.get_combinations(char)
             if len(combinations) > 1:
                 homoglyph_char = homoglyphs.get_combinations(char)[1]
