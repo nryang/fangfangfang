@@ -80,7 +80,9 @@ endpoints. It also serves static files like the
 
 ## Credits
 
-- [uwsgi-nginx-flask-docker](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
-- [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
-- [defang](https://pypi.org/project/defang/)
-- [IOC Fanger](https://github.com/ioc-fang/ioc_fanger)
+- [uwsgi-nginx-flask-docker](https://github.com/tiangolo/uwsgi-nginx-flask-docker) for Docker image
+- [Connexion](https://github.com/zalando/connexion) for serving REST endpoints and Swagger docs
+- [openapi-generator](https://github.com/OpenAPITools/openapi-generator) for code generation
+- [homoglyphs](https://pypi.org/project/homoglyphs/) for converting to and from homoglyphs
+- [defang](https://pypi.org/project/defang/) for example test cases
+- [IOC Fanger](https://github.com/ioc-fang/ioc_fanger) for example test cases
