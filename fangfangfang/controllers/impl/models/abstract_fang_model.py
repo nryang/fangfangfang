@@ -12,7 +12,7 @@ class AbstractSingletonFangModel(ABCMeta):
         return cls._singleton_registry[cls]
 
     @abstractmethod
-    def defang(self, url: str):
+    def defang(self, ioc: str):
         pass
 
     @abstractmethod

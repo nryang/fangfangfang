@@ -12,6 +12,7 @@ class FangModelFactory(object):
 
     @classmethod
     def create_model(cls, model: str):
-        model_class = cls._default_model if model is None\
+        model_class = cls._default_model if model is None or\
+            model not in cls._model_class_mappings\
             else cls._model_class_mappings[model]
         return model_class()
