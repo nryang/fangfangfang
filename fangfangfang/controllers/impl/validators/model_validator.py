@@ -4,6 +4,11 @@ from jsonschema import draft4_format_checker
 
 @draft4_format_checker.checks('model')
 def is_model(val):
+    """Returns true if the value represents a valid model.
+
+    Keyword arguments:
+    val -- the model value
+    """
     if val is None:
         return True
 

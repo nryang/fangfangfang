@@ -16,6 +16,13 @@ with open(os.path.join(__location__, 'custom_regex.txt'), 'r') as f:
 
 
 def defang(body: DefangRequest):
+    """Identifies indicators of compromise and defangs them. Urls, emails,
+    and custom regex rules defined in custom_regex.txt are used to search for
+    indicators of compromise.
+
+    Keyword arguments:
+    body -- the defang request body
+    """
     fang_model = FangModelFactory.create_model(body.model)
     defanged_contents = []
     for text in body.contents:
@@ -31,6 +38,11 @@ def defang(body: DefangRequest):
 
 
 def refang(body: RefangRequest):
+    """Refangs pieces of text.
+
+    Keyword arguments:
+    body -- the refang request body
+    """
     fang_model = FangModelFactory.create_model(body.model)
     refanged_contents = []
     for text in body.contents:

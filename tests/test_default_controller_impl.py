@@ -29,6 +29,8 @@ class TestDefaultControllerImpl(unittest.TestCase):
     ])
     @patch('fangfangfang.controllers.impl.models.homoglyph_fang_model.HomoglyphFangModel.defang')
     def test_defang_is_ioc(self, not_ioc, mock_for_defang):
+        """Asserts the indicators of compromise that should be discovered.
+        """
         mock_for_defang.return_value = 'this_is_a_mocked_defang_result'
         defang_request = DefangRequest(contents=[not_ioc])
         defang_response = defang(defang_request)
@@ -48,6 +50,8 @@ class TestDefaultControllerImpl(unittest.TestCase):
         'һｔｔｐ：⁄⁄ｅⅹａⅿｐⅼｅ．ｃｏⅿ'
     ])
     def test_defang_not_ioc(self, not_ioc):
+        """Asserts text that do not have indicators of compromise.
+        """
         defang_request = DefangRequest(contents=[not_ioc])
         defang_response = defang(defang_request)
         self.assertEqual(defang_response.defanged_contents, [not_ioc])
@@ -57,6 +61,8 @@ class TestDefaultControllerImpl(unittest.TestCase):
     @patch('iocextract.extract_emails')
     @patch('fangfangfang.controllers.impl.models.homoglyph_fang_model.HomoglyphFangModel.defang')
     def test_defang_replace(self, mock_for_defang, mock_for_extract_emails, mock_for_extract_urls, mock_for_create_model):
+        """Asserts that defang only replaces the parts that have indicators of compromise.
+        """
         mock_for_create_model.return_value = HomoglyphFangModel()
         mock_for_extract_urls.return_value = [
             'http://localhost:56732/api/ui',
@@ -77,6 +83,9 @@ class TestDefaultControllerImpl(unittest.TestCase):
     @patch('fangfangfang.controllers.impl.models.fang_model_factory.FangModelFactory.create_model')
     @patch('fangfangfang.controllers.impl.models.homoglyph_fang_model.HomoglyphFangModel.refang')
     def test_refang(self, mock_for_refang, mock_for_create_model):
+        """Asserts that the model's refang result is used in the refanging
+        process.
+        """
         mock_for_create_model.return_value = HomoglyphFangModel()
         mock_for_refang.return_value = 'this_is_a_mocked_refang_result'
 

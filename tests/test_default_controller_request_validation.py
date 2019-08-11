@@ -13,6 +13,9 @@ class TestDefaultControllerRequestValidation(BaseTestCase):
         '/api/refang'
     ])
     def test_invalid_model(self, path):
+        """Asserts that passing in an invalid model in the request throws a 400
+        response.
+        """
         body = {
           "model" : "foo"
         }

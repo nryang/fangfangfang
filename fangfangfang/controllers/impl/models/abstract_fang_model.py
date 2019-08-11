@@ -2,6 +2,10 @@ from abc import ABCMeta, abstractmethod
 
 
 class AbstractSingletonFangModel(ABCMeta):
+    """
+    This is an abstract, singleton class for model implementation classes to
+    inherit.
+    """
 
     _singleton_registry = {}
 
@@ -13,8 +17,16 @@ class AbstractSingletonFangModel(ABCMeta):
 
     @abstractmethod
     def defang(self, ioc: str):
-        pass
+        """Defangs an indicator of compromise.
+
+        Keyword arguments:
+        ioc -- the indicator of compromise
+        """
 
     @abstractmethod
     def refang(self, text: str):
-        pass
+        """Refangs a piece of text.
+
+        Keyword arguments:
+        text -- the text to refang
+        """

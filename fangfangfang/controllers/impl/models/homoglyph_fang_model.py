@@ -6,12 +6,16 @@ import homoglyphs as hg
 
 
 class HomoglyphFangModel(metaclass=AbstractSingletonFangModel):
+    """
+    This class defangs/refangs using homoglyphs.
+    """
 
     def __init__(self):
         self.ascii_to_homoglyph = {}
         self.homoglyph_to_ascii = {}
         homoglyphs = hg.Homoglyphs()
 
+        # Create translation tables from ascii to homoglyph and vice versa
         for char in string.printable:
             combinations = homoglyphs.get_combinations(char)
             if len(combinations) > 1:
