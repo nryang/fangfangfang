@@ -56,10 +56,6 @@ If the API docs are working, you should see the following page:
 
 To stop the application, press `Ctrl+C` from your terminal.
 
-## Known Issues
-
-- In the generated documentation, examples like `hxxp:\/\/somewebsite[dot]com` are showing up as `hxxp:\\/\\/somewebsite[dot]com` where the backslash is repeated twice. This appears to be a bug in Swagger UI.
-
 ## Developer Notes
 
 This project uses an API-first approach. The API spec is written in OpenAPI 3
