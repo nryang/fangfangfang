@@ -8,6 +8,17 @@ import connexion
 from fangfangfang.controllers.impl import ui_controller_impl
 
 
+def favicon():  # noqa: E501
+    """Returns the favicon
+
+     # noqa: E501
+
+
+    :rtype: file
+    """
+    return ui_controller_impl.favicon()
+
+
 def index():  # noqa: E501
     """Displays the home page
 

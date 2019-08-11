@@ -1,13 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>fangfangfang</title>
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>fangfangfang</title>
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css">
+
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
+
+            body {
+                background-color: #FAFAFA;
+                font-family: 'Source Sans Pro', sans-serif;
+                color: #FFFFFF;
+            }
+
+            .grid-container {
+                background-color: #323740;
+                padding: 0;
+            }
+
+            .header {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo-title {
+                display: inline-block;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: 600;
+                margin-left: 0.5rem;
+            }
+
+            .logo-title a {
+                color: #FFFFFF;
+            }
+
+            .logo-title a:hover {
+                color: #E95B3B;
+            }
+
+            a {
+                color: #E95B3B;
+            }
+
+            a:hover {
+                color: #B4341C;
+            }
+
+            .main-content {
+                padding: 1rem;
+                background-color: #dee4f0;
+            }
+
+            .footer {
+                background-color: rgba(0, 0, 0, .2);
+                text-align: center;
+                padding: 0.75rem 0 0.25rem 0;
+            }
+
+            .footer p {
+                color: #CCCCCC;
+            }
+
+            h2, p {
+                font-family: 'Source Sans Pro', sans-serif;
+                color: #000;
+            }
+
+            textarea {
+              resize: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <div class="row header">
+                <div class="large-12 columns">
+                    <a href="/"><img src="/images/logo.png" alt="Logo" style="height: 65px; display: inline-block; vertical-align: bottom" /></a>
+                    <h1 class="logo-title"><a href="/">fangfangfang</a></h1>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <p>Defang or refang text that may contain indicators of compromise.</p>
+                        <p>Currently only supports the homoglyph translation model.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h2>Input</h2>
+                        <textarea id="input" placeholder="Type or paste text here." rows="10" maxlength="1420"></textarea>
+                        <button type="button" class="success button" id="defang">Defang</button>
+                        <button type="button" class="alert button" id="refang">Refang</button>
+                    </div>
+                </div>
+
+
+                <div class="row" id="output-row">
+                    <div class="large-12 columns">
+                        <h2>Output</h2>
+                        <textarea id="output" rows="10" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row footer">
+                <p>View the source code on <a href="https://github.com/nryang/fangfangfang" target="_blank">GitHub</a>.
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"></script>
+        <script>
+            function convert_textarea_to_array(textarea_id) {
+                const lines = $(textarea_id).val().split(/\n/);
+                const text_array = [];
+                for (let i = 0; i < lines.length; i++) {
+                    // only push this line if it contains a non whitespace character.
+                    if (/\S/.test(lines[i])) {
+                    text_array.push($.trim(lines[i]));
+                    }
+                }
+                return text_array;
+            }
+
+            function convert_post_response_to_text(data, contents_field_name) {
+                let text = '';
+                data[contents_field_name].forEach(function (item, index) {
+                    text += item;
+                    text += '\n';
+                });
+                return text;
+            }
+
+            function postCall(path, contents_field_name) {
+                $.ajax({
+                    url: path,
+                    dataType: 'json',
+                    type: 'post',
+                    accept: {
+                        json: 'application/json'
+                    },
+                    contentType: 'application/json',
+                    data: JSON.stringify({"contents": convert_textarea_to_array('#input')}),
+                    processData: false,
+                    success: function(data, textStatus, jQxhr){
+                        $('#output').val(convert_post_response_to_text(data, contents_field_name));
+                    },
+                    error: function(jqXhr, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                        $('#output').val('An unexpected error occurred.');
+                    }
+                });
+            }
+
+            $("#defang").click(function(){
+                postCall('/api/defang', 'defanged_contents');
+            });
+
+            $("#refang").click(function(){
+                postCall('/api/refang', 'refanged_contents');
+            });
+        </script>
+    </body>
 </html>

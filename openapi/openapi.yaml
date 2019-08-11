@@ -84,6 +84,20 @@ paths:
               schema:
                 type: 'string'
                 format: 'binary'
+  /images/favicon.ico:
+    get:
+      summary: 'Returns the favicon'
+      tags:
+        - 'UI'
+      operationId: 'favicon'
+      responses:
+        '200':
+          description: 'Successfully loaded the favicon'
+          content:
+            image/png:
+              schema:
+                type: 'string'
+                format: 'binary'
 
 components:
   schemas:

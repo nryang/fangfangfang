@@ -1,5 +1,5 @@
 import unittest
-
+from parameterized import parameterized
 from fangfangfang.test import BaseTestCase
 
 
@@ -22,16 +22,18 @@ class TestUIController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
-    def test_logo(self):
-        """Test case for logo
-
-        Returns the logo
+    @parameterized.expand([
+        ('/images/logo.png', 'image/png'),
+        ('/images/favicon.ico', 'image/x-icon')
+    ])
+    def test_binaries(self, path, mime_type):
+        """Test case for binaries
         """
         headers = {
-            'Accept': 'image/png',
+            'Accept': mime_type,
         }
         response = self.client.open(
-            '/images/logo.png',
+            path,
             method='GET',
             headers=headers)
         self.assert200(response)

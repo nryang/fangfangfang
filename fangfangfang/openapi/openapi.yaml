@@ -74,6 +74,21 @@ paths:
       - API
       x-codegen-request-body-name: body
       x-openapi-router-controller: fangfangfang.controllers.api_controller
+  /images/favicon.ico:
+    get:
+      operationId: favicon
+      responses:
+        200:
+          content:
+            image/png:
+              schema:
+                format: binary
+                type: string
+          description: Successfully loaded the favicon
+      summary: Returns the favicon
+      tags:
+      - UI
+      x-openapi-router-controller: fangfangfang.controllers.ui_controller
   /images/logo.png:
     get:
       operationId: logo

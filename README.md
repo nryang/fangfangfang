@@ -43,7 +43,7 @@ Open your browser and navigate to:
 
 If everything is working, you should see the following page:
 
-TODO
+![UI](/images/ui.png)
 
 fangfangfang also provides API endpoints for defanging or refanging text. You
 can access the API documentation in your browser by navigating to:
