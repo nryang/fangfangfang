@@ -16,7 +16,8 @@ class HomoglyphFangModel(metaclass=AbstractSingletonFangModel):
         homoglyphs = hg.Homoglyphs()
 
         # Create translation tables from ascii to homoglyph and vice versa
-        for char in string.printable:
+        character_space = string.ascii_letters + string.digits
+        for char in character_space:
             combinations = homoglyphs.get_combinations(char)
             if len(combinations) > 1:
                 homoglyph_char = homoglyphs.get_combinations(char)[1]

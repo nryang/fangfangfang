@@ -7,10 +7,10 @@ from parameterized import parameterized
 class TestHomoglyphFangModel(unittest.TestCase):
 
     _ioc_to_defanged = [
-        ('https://somewebsite.com', 'ℎ𝐭𝐭⍴ƽː᜵᜵ƽᴏm℮ɯ℮Ƅƽı𝐭℮․ᴄᴏm'),
-        ('http://192.168.1.1', 'ℎ𝐭𝐭⍴ː᜵᜵IꝮƧ․I𝟔Ȣ․I․I'),
-        ('ftp://user:password@host:port/path', 'ſ𝐭⍴ː᜵᜵ʋƽ℮ꭇː⍴ɑƽƽɯᴏꭇⅆ@ℎᴏƽ𝐭ː⍴ᴏꭇ𝐭᜵⍴ɑ𝐭ℎ'),
-        ('clickonmyemail@gotcha.com', 'ᴄlıᴄ𝐤ᴏ𝐧mɣ℮mɑıl@ƍᴏ𝐭ᴄℎɑ․ᴄᴏm')
+        ('https://somewebsite.com', 'ℎ𝐭𝐭⍴ƽ://ƽᴏm℮ɯ℮Ƅƽı𝐭℮.ᴄᴏm'),
+        ('http://192.168.1.1', 'ℎ𝐭𝐭⍴://1ꝮƧ.1𝟔Ȣ.1.1'),
+        ('ftp://user:password@host:port/path', 'ſ𝐭⍴://ʋƽ℮ꭇ:⍴ɑƽƽɯᴏꭇⅆ@ℎᴏƽ𝐭:⍴ᴏꭇ𝐭/⍴ɑ𝐭ℎ'),
+        ('clickonmyemail@gotcha.com', 'ᴄIıᴄ𝐤ᴏ𝐧mɣ℮mɑıI@ƍᴏ𝐭ᴄℎɑ.ᴄᴏm')
     ]
     _homoglyph_model = HomoglyphFangModel()
 
